@@ -1,0 +1,22 @@
+import React from "react";
+import { useEffect, useState } from "react";
+import useFetchData from "./component/customhooks/useFetchData";
+//import Tictactoe from './component/Tictactoe/tictactoe.js';
+
+function App() {
+
+  const [userdata]=useFetchData('https://jsonplaceholder.typicode.com/users')
+  const [dogdata]=useFetchData('https://dog.ceo/api/breeds/image/random')
+
+
+  
+  return (
+    <div>
+      <h1>{userdata[0]?.name}</h1>
+      <p>{userdata[0]?.email}</p>
+      <img src={dogdata?.message}/>
+    </div>
+  );
+}
+
+export default App;
